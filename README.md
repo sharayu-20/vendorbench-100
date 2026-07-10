@@ -1,11 +1,9 @@
 # VendorBench-100: A Unified Cross-Paradigm Benchmark for Deepfake Image Detection
 
-**Sharayu N. Deshmukh** (Universidade da Beira Interior) · **Nilesh K. Deshmukh** (SRTMU, Nanded)
-
-VendorBench-100 evaluates **36 detectors across three paradigms** — 5 commercial APIs, 7 zero-shot
-vision LLMs, and 24 open-source detectors — on **one shared adversarial image corpus** under a
-single output schema and a single metrics engine. Models are ranked by
-**Matthews Correlation Coefficient (MCC)**, with **ROC-AUC** as a threshold-free tiebreak.
+VendorBench-100 evaluates 36 detectors across three paradigms — 5 commercial APIs, 7 zero-shot
+vision LLMs, and 24 open-source detectors — on one shared adversarial image corpus under a single
+output schema and a single metrics engine. Models are ranked by the Matthews Correlation Coefficient
+(MCC), with ROC-AUC as a threshold-free tiebreak.
 
 <p align="center">
   <img src="images/architecture.png" width="90%" alt="VendorBench-100 evaluation architecture">
@@ -14,27 +12,24 @@ single output schema and a single metrics engine. Models are ranked by
 ## Overview
 
 Commercial detection APIs, general-purpose vision LLMs, and open-source detectors are almost never
-measured on common ground. VendorBench-100 places all three on **one fixed, deliberately hard corpus**,
+measured on common ground. VendorBench-100 places all three on one fixed, deliberately hard corpus,
 normalizes every model's output into the same `(label, P(fake), success)` record, and scores them with
-the same metrics. The headline finding is not a single winner but a **consistent divergence between
-ranking ability (ROC-AUC) and operating-point quality (MCC)**: strong class separation does not
+the same metrics. The headline finding is not a single winner but a consistent divergence between
+ranking ability (ROC-AUC) and operating-point quality (MCC): strong class separation does not
 guarantee a reliable decision at a model's shipped 0.5 threshold.
 
 ## Dataset
 
-The image corpus is **not distributed in this repository**. It is hosted separately as a
-**gated Hugging Face dataset** (access by request):
-**https://huggingface.co/datasets/SharayuD/vendorbench-100**
+The image corpus is not distributed in this repository. It is hosted separately as a gated Hugging
+Face dataset (access by request): https://huggingface.co/datasets/SharayuD/vendorbench-100
 
 > **Status:** the Hugging Face repository is live and gated (access is granted after manual review of
-> a short request form). The corpus is being finalized — a small number of exact-duplicate images are
-> being removed — and the cleaned dataset will be uploaded there.
+> a short request form).
 
-**Design.** A compact, hand-picked *adversarial* corpus (fake images + real negative controls)
-built for difficulty rather than scale, spanning **8 edge-case failure families** across **21
-provenance source groups**, with a strict **anti-leakage protocol** (models are served neutral
-numeric filenames; the descriptive `fake_<GROUP>_NNN` labels are post-hoc join keys only) and a
-per-image provenance registry.
+**Design.** A compact, hand-picked adversarial corpus (fake images + real negative controls) built
+for difficulty rather than scale, spanning 8 edge-case failure families across 21 provenance source
+groups, with a strict anti-leakage protocol (models are served neutral numeric filenames; the
+descriptive `fake_<GROUP>_NNN` labels are post-hoc join keys only) and a per-image provenance registry.
 
 The eight failure families: live / virtual face-swap smear · near-duplicate face-swap selfies ·
 letterboxed text-to-video stills (Sora/Veo) · AI-avatar compositing seams (HeyGen) · fully synthetic
@@ -43,11 +38,11 @@ research-dataset frames (DF40, FaceForensics++).
 
 ## Results
 
-> **Note:** these figures reflect the initial evaluation run and are **being revised** as the corpus
-> is finalized (exact-duplicate images are being removed); values may change slightly.
+> **Note:** these figures reflect the initial evaluation run and may be revised; treat them as
+> preliminary.
 
-Ranked by MCC (primary), ROC-AUC (tiebreak); positive class = FAKE. **Full 36-model leaderboard and
-all figures: [`docs/RESULTS.md`](docs/RESULTS.md).**
+Ranked by MCC (primary), ROC-AUC (tiebreak); positive class = FAKE. Full 36-model leaderboard and
+all figures: [`docs/RESULTS.md`](docs/RESULTS.md).
 
 | Track | Models | Best MCC | Median MCC | Best ROC-AUC | Median ROC-AUC |
 |---|---:|---|---:|---|---:|
@@ -116,7 +111,7 @@ python -m benchmark.main report
 ## Data & artifacts
 
 - **Dataset** — hosted separately as a gated Hugging Face dataset (see [Dataset](#dataset)).
-- **Aggregated results** (`results/*/summary.json`, `per-image.csv`) and all **figures** are in this repo.
+- **Aggregated results** (`results/*/summary.json`, `per-image.csv`) and all figures are in this repo.
 - **Per-image evidence logs** and **raw model outputs** are available on request.
 - **Model weights** are not committed; they are fetched by `scripts/download_models.py`.
 
@@ -132,6 +127,6 @@ python -m benchmark.main report
 
 ## License
 
-Code is released under the [MIT License](LICENSE). The image corpus is provided for **research and
-benchmarking use only**; third-party generator outputs and any images of external origin remain the
+Code is released under the [MIT License](LICENSE). The image corpus is provided for research and
+benchmarking use only; third-party generator outputs and any images of external origin remain the
 property of their respective owners.
