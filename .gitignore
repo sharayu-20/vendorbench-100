@@ -1,0 +1,42 @@
+# --- secrets (never commit) ---
+config.env
+*.env
+.env
+!config.env.example
+
+# --- OS / editor cruft ---
+.DS_Store
+*.DS_Store
+.idea/
+.vscode/
+
+# --- superseded / local-only ---
+archive/
+scratchpad/
+plan/
+raw_llm_results_zip/
+scripts/introspect_result.json
+
+# --- python / build cruft ---
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# --- virtualenvs ---
+.venv/
+.venv-research/
+
+# --- run output (regenerable) ---
+logs/
+reports/
+checkpoint.json
+
+# --- large / downloaded assets ---
+models/
+vendor/
+*.pt
+*.pth
+*.ckpt
+.huggingface/

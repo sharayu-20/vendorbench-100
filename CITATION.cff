@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use VendorBench-100, please cite it as below."
+title: "VendorBench-100: A Unified Cross-Paradigm Benchmark for Deepfake Image Detection"
+type: software
+authors:
+  - family-names: Deshmukh
+    given-names: Sharayu N.
+    affiliation: "Universidade da Beira Interior, Covilhã, Portugal"
+    email: d.sharyu.nilesh@ubi.pt
+  - family-names: Deshmukh
+    given-names: Nilesh K.
+    affiliation: "School of Computational Science, Swami Ramanand Tirtha Marathwada University, Nanded, India"
+    email: nileshkd.srt@gmail.com
+year: 2026
+keywords:
+  - deepfake detection
+  - AI-generated image detection
+  - cross-paradigm benchmarking
+  - vision-language models
+  - open-source detectors
+  - Matthews correlation coefficient
+  - reproducibility
+license: MIT

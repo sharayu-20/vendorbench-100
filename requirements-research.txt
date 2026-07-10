@@ -1,0 +1,28 @@
+# Open-source research track — local GPU inference dependencies
+# Install into a dedicated venv:  python3 -m venv .venv-research && .venv-research/bin/pip install -r requirements-research.txt
+
+# Core ML stack (local inference on GPU)
+torch>=2.2.0
+transformers>=4.44.0
+timm>=1.0.0
+huggingface_hub>=0.24.0
+safetensors>=0.4.0
+
+# Tier B custom loaders: peft (bombek1 LoRA), open-clip-torch (AIDE ConvNeXt-XXL)
+peft>=0.11.0
+open-clip-torch>=2.24.0
+
+# Tier C custom loaders: OpenAI CLIP (RINE ViT-L/14 intermediate-block hooks)
+clip @ git+https://github.com/openai/CLIP.git
+
+# Image / data handling
+pillow>=10.0.0
+numpy>=1.26.0
+pyyaml>=6.0
+tqdm>=4.66.0
+
+# Shared benchmark framework deps (metrics + reporting + config)
+requests>=2.31.0
+tenacity>=8.2.0
+scikit-learn>=1.4.0
+python-dotenv>=1.0.0
