@@ -22,12 +22,13 @@ guarantee a reliable decision at a model's shipped 0.5 threshold.
 
 ## Dataset
 
-The image corpus is **not distributed in this repository**. It will be released separately as a
-**gated Hugging Face dataset** (access by request): **link coming soon**.
+The image corpus is **not distributed in this repository**. It is hosted separately as a
+**gated Hugging Face dataset** (access by request):
+**https://huggingface.co/datasets/SharayuD/vendorbench-100**
 
-> **Status:** the corpus is being finalized — a small number of exact-duplicate images are being
-> removed. The cleaned dataset will be published on Hugging Face under gated access, and this README
-> will link it here.
+> **Status:** the Hugging Face repository is live and gated (access is granted after manual review of
+> a short request form). The corpus is being finalized — a small number of exact-duplicate images are
+> being removed — and the cleaned dataset will be uploaded there.
 
 **Design.** A compact, hand-picked *adversarial* corpus (fake images + real negative controls)
 built for difficulty rather than scale, spanning **8 edge-case failure families** across **21
